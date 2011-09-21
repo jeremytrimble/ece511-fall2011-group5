@@ -1,0 +1,5 @@
+#summary List of potential enhancements to the Digitial Doorman.
+
+= User-Programmable Knock Pattern =
+
+= Allowance for Tempo Variance in Knock Pattern =
