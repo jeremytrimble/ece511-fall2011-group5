@@ -1,5 +1,5 @@
 #summary List of potential enhancements to the Digitial Doorman.
 
-= User-Programmable Knock Pattern =
-
-= Allowance for Tempo Variance in Knock Pattern =
+  * User-programmable knock pattern
+  * Allowance for tempo variance in knock pattern
+  * Buzzer/alarm for multiple incorrect unlock attempts
