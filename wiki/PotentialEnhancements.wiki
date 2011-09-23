@@ -1,5 +1,0 @@
-#summary List of potential enhancements to the Digitial Doorman.
-
-  * User-programmable knock pattern
-  * Allowance for tempo variance in knock pattern
-  * Buzzer/alarm for multiple incorrect unlock attempts
