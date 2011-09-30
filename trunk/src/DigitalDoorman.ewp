@@ -101,7 +101,7 @@
         </option>
         <option>
           <name>OGChipSelectMenu</name>
-          <state>MSP430F149	MSP430F149</state>
+          <state>MSP430G2231	MSP430G2231</state>
         </option>
         <option>
           <name>GStackHeapOverride</name>
@@ -121,7 +121,7 @@
         </option>
         <option>
           <name>GHeap20Size</name>
-          <state>###Uninitialized###</state>
+          <state>80</state>
         </option>
         <option>
           <name>GeneralMisraRules98</name>
@@ -640,7 +640,7 @@
         </option>
         <option>
           <name>OutputFile</name>
-          <state>templproj.d43</state>
+          <state>DigitalDoorman.d43</state>
         </option>
         <option>
           <name>OutputFormat</name>
@@ -1870,6 +1870,9 @@
   </configuration>
   <file>
     <name>$PROJ_DIR$\main.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\recognition.h</name>
   </file>
 </project>
 
