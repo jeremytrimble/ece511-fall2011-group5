@@ -1,4 +1,4 @@
-#include "recognition.h"
+#include "main.h"
 
 #define LED1 (BIT0)
 #define LED2 (BIT6)
