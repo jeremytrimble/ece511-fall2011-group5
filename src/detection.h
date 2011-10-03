@@ -3,4 +3,6 @@
 
 extern void init_detection();
 
+extern void run_detection();
+
 #endif

@@ -9,5 +9,5 @@ void main(void)
   
   __enable_interrupt();
   
-  while(1);
+  run_detection();
 }
