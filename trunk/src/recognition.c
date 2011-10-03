@@ -4,7 +4,7 @@
 #define LED2 (BIT6)
 
 #define DELTA 100
-#define MS_FACTOR 32
+#define MS_FACTOR 110
 
 const unsigned long KEY[] = { 0, 1000, 1000, 500, 500 };
 
@@ -24,12 +24,10 @@ extern void report_knock(unsigned long count)
                      && count <= (KEY[index] + DELTA) * MS_FACTOR))
   {
     accept_knock();
-    index++;
   }
   else
   {
     reject_knock();
-    index = 0;
   }
 }
 
@@ -37,10 +35,20 @@ void accept_knock()
 {
   P1OUT &= ~LED1;
   P1OUT |= LED2;
+  if (index < 4)
+  {
+    index++;
+  }
+  else
+  {
+    P1OUT |= LED1;
+    index = 0;
+  }
 }
 
 void reject_knock()
 {
   P1OUT &= ~LED2;
   P1OUT |= LED1;
+  index = 0;
 }  
