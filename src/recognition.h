@@ -1,4 +1,8 @@
-#define DELTA 10
-#define MS_FACTOR 32
+#ifndef __RECOGNITION_H
+#define __RECOGNITION_H
 
-extern void report_knock();
+extern void init_recognition();
+
+extern void report_knock(unsigned long count);
+
+#endif
