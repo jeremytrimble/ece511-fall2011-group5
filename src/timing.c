@@ -1,4 +1,4 @@
-#include "timing.h"
+#include "main.h"
 
 #ifdef MCLK_IS_1MHZ
 
