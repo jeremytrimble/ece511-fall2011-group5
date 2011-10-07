@@ -2,8 +2,6 @@
 
 #define BUTTON (BIT3)
 
-#include "timing.h"
-
 unsigned long timer = 0;
 
 extern void init_detection()

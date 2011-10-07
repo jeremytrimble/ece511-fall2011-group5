@@ -1,5 +1,4 @@
-#include "backchannel.h"
-#include "timing.h"     /* MCLK_IS_1MHZ */
+#include "main.h"     /* MCLK_IS_1MHZ */
 
 #include <stdarg.h>
 

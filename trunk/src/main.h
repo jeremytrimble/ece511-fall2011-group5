@@ -6,5 +6,9 @@
 
 #include "detection.h"
 #include "recognition.h"
+#include "timing.h"
+#include "backchannel.h"
+
+typedef enum {FALSE, TRUE} bool; 
 
 #endif
