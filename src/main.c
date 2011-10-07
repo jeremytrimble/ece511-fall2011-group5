@@ -1,8 +1,14 @@
 #include "main.h"
 
+#include "timing.h"
+#include "backchannel.h"
+
 void main(void)
 {
   WDTCTL = WDTPW | WDTHOLD;
+
+  init_clock();
+  init_backchannel();
   
   init_detection();
   init_recognition();

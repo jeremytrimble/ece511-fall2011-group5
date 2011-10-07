@@ -1869,6 +1869,12 @@
     </settings>
   </configuration>
   <file>
+    <name>$PROJ_DIR$\backchannel.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\backchannel.h</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\detection.h</name>
   </file>
   <file>
@@ -1885,6 +1891,12 @@
   </file>
   <file>
     <name>$PROJ_DIR$\recognition.h</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\timing.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\timing.h</name>
   </file>
 </project>
 
