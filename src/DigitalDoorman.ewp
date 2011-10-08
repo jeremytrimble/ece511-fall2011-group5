@@ -1876,15 +1876,15 @@
   </file>
   <file>
     <name>$PROJ_DIR$\detection.c</name>
-    <excluded>
-      <configuration>Debug</configuration>
-    </excluded>
   </file>
   <file>
     <name>$PROJ_DIR$\detection.h</name>
   </file>
   <file>
     <name>$PROJ_DIR$\detection_simulator.c</name>
+    <excluded>
+      <configuration>Debug</configuration>
+    </excluded>
   </file>
   <file>
     <name>$PROJ_DIR$\main.c</name>
