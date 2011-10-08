@@ -2,6 +2,7 @@
 
 #define LED1 (BIT0) // Red LED
 #define LED2 (BIT6) // Green LED
+#define SOL_CTRL (BIT7) // Solenoid controller
 
 #define DELTA (unsigned long) 1200
 #define KEY_LENGTH (unsigned int) 5
@@ -24,8 +25,8 @@ void accept_knock();
 void reject_knock();
 
 extern void init_recognition() {
-  P1DIR |= (LED1 | LED2);
-  P1OUT &= ~(LED1 | LED2);
+  P1DIR |= (LED1 | LED2 | SOL_CTRL);
+  P1OUT &= ~(LED1 | LED2 | SOL_CTRL);
 }
 
 extern void report_knock(unsigned long count)
@@ -50,7 +51,7 @@ extern void report_knock(unsigned long count)
 
 void accept_knock()
 {
-  P1OUT &= ~(LED1 | LED2);
+  P1OUT &= ~(LED1 | LED2 | SOL_CTRL);
   P1OUT |= LED2;  // temp
   
   if (index < KEY_LENGTH - 1)
@@ -61,6 +62,7 @@ void accept_knock()
   {
     P1OUT |= LED2;
     P1OUT |= LED1;  // temp
+    P1OUT |= SOL_CTRL;
     
     // Succeeded!
     bc_printf("Success!\n  Knock history: ");
@@ -83,7 +85,7 @@ void accept_knock()
 
 void reject_knock()
 {
-  P1OUT &= ~(LED1 | LED2);
+  P1OUT &= ~(LED1 | LED2 | SOL_CTRL);
   
   // Failed!
   // TODO:  Do not immediately display rejection
