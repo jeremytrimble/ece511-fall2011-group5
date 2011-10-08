@@ -25,7 +25,7 @@
       <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
       <file>$TOOLKIT_DIR$\inc\in430.h</file>
       <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
-      <file>$TOOLKIT_DIR$\inc\msp430G2231.h</file>
+      <file>$TOOLKIT_DIR$\inc\msp430g2231.h</file>
       <file>$PROJ_DIR$\Debug\Obj\DigitalDoorman.pbd</file>
       <file>$PROJ_DIR$\Debug\Obj\recognition.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
