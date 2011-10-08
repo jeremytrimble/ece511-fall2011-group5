@@ -3,11 +3,11 @@
 #define LED1 (BIT0) // Red LED
 #define LED2 (BIT6) // Green LED
 
-#define DELTA (unsigned long) 100
+#define DELTA (unsigned long) 1200
 #define KEY_LENGTH (unsigned int) 5
-#define MIN_SILENCE (unsigned long) 3000
+#define MIN_SILENCE (unsigned long) 18000
 
-const unsigned long KEY[KEY_LENGTH] = { 0, 1000, 1000, 500, 500 };
+const unsigned long KEY[KEY_LENGTH] = { 0, 6000, 6000, 3000, 3000 };
 
 #define KNOCK_HISTORY_LEN (8)
 #define KNOCK_HISTORY_IDX_MASK (0x07)
@@ -91,7 +91,16 @@ void reject_knock()
   
   failCounter++;
   
-  bc_printf("Failed (%d times)!\n  INTRUDER ALERT!\n", failCounter);
+  bc_printf("Failed (%d times)!\n  INTRUDER ALERT!  Knock history: \n", failCounter);
+    {
+      int i;
+      for (i = 0; i < KNOCK_HISTORY_LEN; i++)
+      {
+        bc_printf("%u ",
+                  knockEventHistory[ (i + historyIdx) & KNOCK_HISTORY_IDX_MASK]);
+      }
+    }
+    bc_printf("\n");
   
   index = 0;
   wait_for_silence = TRUE;

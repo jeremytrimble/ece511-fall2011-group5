@@ -32,6 +32,7 @@ extern void run_detection()
   {   
     timer++;
     
+    
     // Just in case the refrence voltage takes some time to settle, we let the
     // ADC wait before starting sampling
     // __delay_cycles(500);
@@ -45,10 +46,11 @@ extern void run_detection()
     // the value of the conversion is stored in ADC10MEM, we assign this value
     // to a variable
     knock_amplitude = ADC10MEM;
-    if (knock_amplitude > THRESHOLD)
+    if ((knock_amplitude > THRESHOLD) && (timer > 500))
     {
       report_knock(timer);
       timer = 0;
+      
     }
   } 
 }
