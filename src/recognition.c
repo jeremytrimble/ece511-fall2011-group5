@@ -6,12 +6,12 @@
 
 #define DELTA (unsigned long) 1200
 #define KEY_LENGTH (unsigned int) 5
-#define MIN_SILENCE (unsigned long) 18000
-
-const unsigned long KEY[KEY_LENGTH] = { 0, 6000, 6000, 3000, 3000 };
+#define RESET_TIME (unsigned int) 375
 
 #define KNOCK_HISTORY_LEN (8)
 #define KNOCK_HISTORY_IDX_MASK (0x07)
+
+const unsigned long KEY[KEY_LENGTH] = { 0, 6000, 6000, 3000, 3000 };
 
 unsigned int knockEventHistory[KNOCK_HISTORY_LEN] = {0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char historyIdx = 0;
@@ -19,22 +19,34 @@ unsigned char historyIdx = 0;
 unsigned int failCounter = 0;
 
 unsigned int index = 0;
-bool wait_for_silence = FALSE;
 
+bool wait_for_reset = FALSE;
+
+unsigned int timer_count = 0;
+
+void reset();
 void accept_knock();
 void reject_knock();
 
-extern void init_recognition() {
+extern void init_recognition()
+{
   P1DIR |= (LED1 | LED2 | SOL_CTRL);
   P1OUT &= ~(LED1 | LED2 | SOL_CTRL);
+  
+  WDTCTL = WDT_MDLY_8;
+  IE1 |= WDTIE;
 }
 
 extern void report_knock(unsigned long count)
 {
+  timer_count = 0;
+  TACTL |= TACLR;
+  P1OUT &= ~(LED1 | LED2 | SOL_CTRL);
+  
   knockEventHistory[historyIdx] = (unsigned int) count;
   historyIdx = (historyIdx + 1) & KNOCK_HISTORY_IDX_MASK;
   
-  if (index == 0 && (!wait_for_silence || count >= MIN_SILENCE))
+  if (index == 0 && (!wait_for_reset))
   {
     accept_knock();
   }
@@ -51,9 +63,6 @@ extern void report_knock(unsigned long count)
 
 void accept_knock()
 {
-  P1OUT &= ~(LED1 | LED2 | SOL_CTRL);
-  P1OUT |= LED2;  // temp
-  
   if (index < KEY_LENGTH - 1)
   {
     index++;
@@ -61,7 +70,6 @@ void accept_knock()
   else
   {
     P1OUT |= LED2;
-    P1OUT |= LED1;  // temp
     P1OUT |= SOL_CTRL;
     
     // Succeeded!
@@ -79,31 +87,50 @@ void accept_knock()
     index = 0;
     failCounter = 0;
   }
-  
-  wait_for_silence = FALSE;
 }
 
 void reject_knock()
 {
-  P1OUT &= ~(LED1 | LED2 | SOL_CTRL);
-  
   // Failed!
-  // TODO:  Do not immediately display rejection
-  P1OUT |= LED1;
-  
   failCounter++;
   
   bc_printf("Failed (%d times)!\n  INTRUDER ALERT!  Knock history: \n", failCounter);
+  {
+    int i;
+    for (i = 0; i < KNOCK_HISTORY_LEN; i++)
     {
-      int i;
-      for (i = 0; i < KNOCK_HISTORY_LEN; i++)
-      {
-        bc_printf("%u ",
-                  knockEventHistory[ (i + historyIdx) & KNOCK_HISTORY_IDX_MASK]);
-      }
+      bc_printf("%u ",
+                knockEventHistory[ (i + historyIdx) & KNOCK_HISTORY_IDX_MASK]);
     }
-    bc_printf("\n");
+  }
+  bc_printf("\n");
   
   index = 0;
-  wait_for_silence = TRUE;
+  wait_for_reset = TRUE;
 }  
+
+#pragma vector = WDT_VECTOR
+__interrupt void watchdog_timer()
+{
+  if (timer_count < RESET_TIME)
+  {
+    timer_count++;
+  }
+  else
+  {
+    if (wait_for_reset)
+    {
+      P1OUT |= LED1;
+    }
+    else
+    {
+      P1OUT &= ~LED1;
+    }
+    
+    timer_count = 0;
+    index = 0;
+    wait_for_reset = FALSE;
+  }
+  
+  TACTL |= TACLR;
+}
