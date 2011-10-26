@@ -101,7 +101,7 @@
         </option>
         <option>
           <name>OGChipSelectMenu</name>
-          <state>MSP430G2231	MSP430G2231</state>
+          <state>MSP430G2533	MSP430G2533</state>
         </option>
         <option>
           <name>GStackHeapOverride</name>
@@ -109,11 +109,11 @@
         </option>
         <option>
           <name>GStackSize2</name>
-          <state>50</state>
+          <state>80</state>
         </option>
         <option>
           <name>GHeapSize2</name>
-          <state>0</state>
+          <state>80</state>
         </option>
         <option>
           <name>RadioDataModelType</name>
@@ -1876,15 +1876,15 @@
   </file>
   <file>
     <name>$PROJ_DIR$\detection.c</name>
-    <excluded>
-      <configuration>Debug</configuration>
-    </excluded>
   </file>
   <file>
     <name>$PROJ_DIR$\detection.h</name>
   </file>
   <file>
     <name>$PROJ_DIR$\detection_simulator.c</name>
+    <excluded>
+      <configuration>Debug</configuration>
+    </excluded>
   </file>
   <file>
     <name>$PROJ_DIR$\main.c</name>
