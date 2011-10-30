@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>233718283</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\backchannel.c</file>
+      <file>$PROJ_DIR$\Debug\Exe\DigitalDoorman.d43</file>
+      <file>$PROJ_DIR$\buzzer.h</file>
+      <file>$PROJ_DIR$\backchannel.h</file>
+      <file>$PROJ_DIR$\Buzzer.c</file>
+      <file>$PROJ_DIR$\detection.c</file>
+      <file>$PROJ_DIR$\detection.h</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\main.h</file>
+      <file>$PROJ_DIR$\recognition.c</file>
+      <file>$PROJ_DIR$\recognition.h</file>
+      <file>$PROJ_DIR$\timing.c</file>
+      <file>$PROJ_DIR$\timing.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Buzzer.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
+      <file>$TOOLKIT_DIR$\inc\msp430G2231.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\buzzer.d43</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\timing.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\timing.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\buzzer.pbd</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Buzzer.pbi</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.h</file>
+      <file>$TOOLKIT_DIR$\config\lnk430G2533.xcl</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdarg.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\detection.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\detection.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\recognition.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\recognition.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\backchannel.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\backchannel.r43</file>
+      <file>$TOOLKIT_DIR$\config\lnk430G2553.xcl</file>
+      <file>$PROJ_DIR$\Debug\Obj\DigitalDoorman.pbd</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 1</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\backchannel.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 36</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 39</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8 15 22 16 6 10 12 2 3 27 28 32 34 31 38 37</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 8 15 22 16 6 10 12 2 3 27 28 32 34 25 31 38 37</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\DigitalDoorman.d43</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 40 13 39 29 14 33 20 24</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Buzzer.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 23</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 13</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8 15 22 16 6 10 12 2 3</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 8 15 22 16 6 10 12 2 3</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\detection.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 30</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 29</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8 15 22 16 6 10 12 2 3</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 8 15 22 16 6 10 12 2 3</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 14</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8 15 22 16 6 10 12 2 3</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 8 15 22 16 6 10 12 2 3</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\recognition.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 33</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8 15 22 16 6 10 12 2 3</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 8 15 22 16 6 10 12 2 3</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\timing.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8 15 22 16 6 10 12 2 3</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 8 15 22 16 6 10 12 2 3</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\buzzer.d43</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 26 13 39 29 14 33 20 24</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Obj\buzzer.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 23 36 30 18 35 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Obj\DigitalDoorman.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 23 36 30 18 35 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <forcedrebuild>
+      <name>[REBUILD_ALL]</name>
+    </forcedrebuild>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>[REBUILD_ALL]</name>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+
