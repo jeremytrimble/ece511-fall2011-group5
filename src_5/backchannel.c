@@ -265,13 +265,18 @@ static volatile unsigned char rxbuf[RX_BUFFER_DEPTH_BYTES];
 
 int bc_rx_byte(void)
 {
-    int rv;
+  unsigned char rxbuf_next_read_idx_var= 0;
+  unsigned char rxbuf_next_write_idx_var =0;
+  
+  int rv;
 
     // This needs to be atomic, so momentarily disable RX interrupt.
     P1IE &= ~RXD;   // Disable interrupts for RX pin.
 
     // BEGIN ATOMIC:
-    if ( rxbuf_next_read_idx == rxbuf_next_write_idx )
+    rxbuf_next_read_idx_var= rxbuf_next_read_idx;// to prevent warning against volatile access order. 
+    rxbuf_next_write_idx_var=rxbuf_next_write_idx;
+    if ( rxbuf_next_read_idx_var == rxbuf_next_write_idx_var )
     {
         rv = -1;
     }
@@ -364,7 +369,9 @@ __interrupt void PORT1_ISR (void)
     rxbuf_next_write_idx = (rxbuf_next_write_idx + 1) & RX_BUFFER_DEPTH_MASK;
 
     // If we just overwrote the end of the buffer, bump next read idx.
-    if ( rxbuf_next_write_idx == rxbuf_next_read_idx )
+   unsigned char rxbuf_next_write_idx_var =0;
+   rxbuf_next_write_idx_var =rxbuf_next_write_idx;
+    if ( rxbuf_next_write_idx_var == rxbuf_next_read_idx )
         rxbuf_next_read_idx = (rxbuf_next_read_idx + 1) & RX_BUFFER_DEPTH_MASK;
 
     P1IFG &= ~RXD;  // Clear interrupt flag.
