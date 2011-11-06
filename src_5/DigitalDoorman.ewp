@@ -706,7 +706,7 @@
         </option>
         <option>
           <name>XclFile</name>
-          <state>$TOOLKIT_DIR$\CONFIG\lnk430G2533.xcl</state>
+          <state>$TOOLKIT_DIR$\CONFIG\lnk430G2553.xcl</state>
         </option>
         <option>
           <name>XclFileSlave</name>
@@ -1891,6 +1891,12 @@
   </file>
   <file>
     <name>$PROJ_DIR$\main.h</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\programming_mode.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\programming_mode.h</name>
   </file>
   <file>
     <name>$PROJ_DIR$\recognition.c</name>
