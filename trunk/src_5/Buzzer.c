@@ -58,7 +58,6 @@ void play_knock_pattern()
 {
   
   unsigned int index =0;
-  unsigned long timer =0;
   while(index<5)
     {
     delay_milliseconds((KEY[index]/10)+1);

@@ -9,6 +9,7 @@
 #include "timing.h"
 #include "buzzer.h"
 #include "backchannel.h"
+#include "systemcheck.h"
 
 typedef enum {FALSE, TRUE} bool;
 
