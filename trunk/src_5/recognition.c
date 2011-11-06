@@ -2,14 +2,14 @@
 
 
 
-const unsigned int KEY[KEY_LENGTH] = { 0, 6000, 6000, 3000, 3000 };
+//const unsigned int KEY[KEY_LENGTH] = { 0, 6000, 6000, 3000, 3000 };
 
 unsigned int knockEventHistory[KNOCK_HISTORY_LEN] = {0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char historyIdx = 0;
 
 unsigned int failCounter = 0;
 
-unsigned int index = 0;
+
 
 bool wait_for_reset = FALSE;
 

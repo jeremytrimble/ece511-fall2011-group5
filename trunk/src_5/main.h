@@ -10,6 +10,7 @@
 #include "buzzer.h"
 #include "backchannel.h"
 #include "systemcheck.h"
+#include "programming_mode.h"
 
 typedef enum {FALSE, TRUE} bool;
 

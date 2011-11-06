@@ -48,9 +48,17 @@ extern void run_detection()
     knock_amplitude = ADC10MEM;
     if ((knock_amplitude > THRESHOLD) && (timer > 500))
     {
+      if (programming_mode==1)
+      {
+        start_programming(timer);
+      }
+      else
+      {
       report_knock(timer);
+      }
+      
       timer = 0;
-     
+      
     }
   }
 }

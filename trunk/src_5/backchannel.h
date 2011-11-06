@@ -1,8 +1,9 @@
 #ifndef __BACKCHANNEL_COMMS_H_
 #define __BACKCHANNEL_COMMS_H_
-
+#include "main.h"
 #include <msp430G2231.h>
-
+#include "intrinsics.h"
+extern unsigned int programming_mode; 
 /*
  *  WARNING:
  *   It seems that if you start sending out data on the backchannel uart as

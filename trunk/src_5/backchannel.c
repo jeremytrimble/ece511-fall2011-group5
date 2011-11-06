@@ -15,7 +15,7 @@
  * to communicate with the Timer_A() ISR. */
 static volatile unsigned int TXByte;
 static volatile unsigned char BitCnt;
-
+unsigned int programming_mode; 
 void init_backchannel(void)
 {
     /* TX SETUP */
@@ -297,9 +297,20 @@ __interrupt void PORT1_ISR (void)
 {
   if (P1IFG &BIT3)  // interrupt p1.3 pin
   {
-    play_knock_pattern(); 
-    P1IES ^= BIT3;
-    P1IFG &= ~BIT3; // P1.3 IFG cleared
+     if (programming_mode==0)
+     {
+       //bc_printf("Starting Programming...\n ");
+       init_programming_mode( );
+       programming_mode=1;
+     }
+     else
+     {
+     //bc_printf("Exiting Programming...\n ");
+       programming_mode =0;
+     play_knock_pattern(); 
+     P1IES ^= BIT3;
+     }
+     P1IFG &= ~BIT3; // P1.3 IFG cleared
     
   }
   else
