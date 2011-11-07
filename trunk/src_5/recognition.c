@@ -8,7 +8,7 @@ unsigned int knockEventHistory[KNOCK_HISTORY_LEN] = {0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char historyIdx = 0;
 
 unsigned int failCounter = 0;
-
+unsigned int index =0;
 
 
 bool wait_for_reset = FALSE;
@@ -97,7 +97,7 @@ extern void report_knock(unsigned long count)
 
 void accept_knock()
 {
-  if (index < KEY_LENGTH - 1)
+  if (index < key_length_programmed - 1)
   {
     index++;
   }

@@ -5,6 +5,6 @@
 extern unsigned int KEY[KEY_LENGTH];
 extern void start_programming(unsigned long timer);
 extern void init_programming_mode( );
-extern unsigned int index;
+extern unsigned int key_length_programmed;
 
 #endif
