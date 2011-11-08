@@ -120,7 +120,7 @@ void accept_knock()
       }
     }
     bc_printf("\n Scale factor: (%u >> 4)\n", scale_factor);
-   activate_door_open(100);// signal Buzzer for confirmation sound
+   activate_door_open(10);// signal Buzzer for confirmation sound
     index = 0;
     failCounter = 0;
   }
