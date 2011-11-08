@@ -58,7 +58,7 @@ void play_knock_pattern()
 {
   
   unsigned int index =0;
-  while(index<5)
+  while(index<key_length_programmed)
     {
     delay_milliseconds((KEY[index]/10)+1);
     activate_alarm(1);
