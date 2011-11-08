@@ -46,7 +46,7 @@ extern void run_detection()
     // the value of the conversion is stored in ADC10MEM, we assign this value
     // to a variable
     knock_amplitude = ADC10MEM;
-    if ((knock_amplitude > THRESHOLD) && (timer > 1000))
+    if ((knock_amplitude > THRESHOLD) && (timer > 500))
     {
       if (programming_mode==1)
       {
