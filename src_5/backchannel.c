@@ -302,6 +302,7 @@ __interrupt void PORT1_ISR (void)
        //bc_printf("Starting Programming...\n ");
        init_programming_mode( );
        programming_mode=1;
+       P1IES ^= BIT3;
      }
      else
      {
