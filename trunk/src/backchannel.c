@@ -300,6 +300,7 @@ __interrupt void PORT1_ISR (void)
      if (programming_mode==0)
      {
        //bc_printf("Starting Programming...\n ");
+       __delay_cycles(100);// so it does not trigger the switch flip noise. 
        init_programming_mode( );
        programming_mode=1;
        P1IES ^= BIT3;
