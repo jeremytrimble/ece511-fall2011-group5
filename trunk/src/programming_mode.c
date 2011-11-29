@@ -1,12 +1,11 @@
 #include "main.h"
-unsigned int KEY[KEY_LENGTH] = { 0, 6000,  6000, 3000, 3000, 0, 0, 0, 0,0 };
+unsigned int KEY[KEY_LENGTH] = { 0, 6000, 6000, 3000, 3000, 0, 0, 0, 0, 0 };
 unsigned int key_length_programmed = 5;
 unsigned int programming_index =0;
 void init_programming_mode( )
 {
   programming_mode =0;
   programming_index=0;
- 
 }
 
 void start_programming(unsigned long timer)

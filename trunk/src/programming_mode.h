@@ -1,7 +1,7 @@
 #ifndef __PROGRAMMING_MODE_H
 #define __PROGRAMMING_MODE_H
 
-#define KEY_LENGTH (unsigned int) 10
+#define KEY_LENGTH (unsigned int) 64 
 extern unsigned int KEY[KEY_LENGTH];
 extern void start_programming(unsigned long timer);
 extern void init_programming_mode( );

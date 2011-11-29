@@ -106,9 +106,7 @@ void accept_knock()
     //P1OUT |= LED2;
     P1OUT &= ~LED2;
     P1OUT |= SOL_CTRL;
-    //activate_door_open(500);// signal Buzzer for confirmation sound
-    //delay_milliseconds(500);
-    //activate_door_open(500);
+
     // Succeeded!
     bc_printf("Success!\n  Knock history: ");
     {
@@ -120,7 +118,7 @@ void accept_knock()
       }
     }
     bc_printf("\n Scale factor: (%u >> 4)\n", scale_factor);
-   activate_door_open(10);// signal Buzzer for confirmation sound
+    activate_door_open();	// signal Buzzer for confirmation sound
     index = 0;
     failCounter = 0;
   }
@@ -128,8 +126,6 @@ void accept_knock()
 
 void reject_knock()
 {
-  // Failed!
-  failCounter++;
  
   bc_printf("Failed (%u times)!\n  INTRUDER ALERT!  Knock history: \n", failCounter);
   {
@@ -160,7 +156,11 @@ __interrupt void watchdog_timer()
     {
       //P1OUT |= LED1;
       P1OUT &= ~LED1;
-      activate_alarm(100);//Activate Alarm after multiple failures
+
+      failCounter++;
+
+      if (failCounter >= 3)
+        siren();
     }
     else
     {

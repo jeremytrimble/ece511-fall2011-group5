@@ -295,11 +295,10 @@ int bc_rx_byte(void)
 #pragma vector=PORT1_VECTOR
 __interrupt void PORT1_ISR (void)
 {
-  if (P1IFG &BIT3)  // interrupt p1.3 pin
+  if (P1IFG & BIT3)  // interrupt p1.3 pin
   {
      if (programming_mode==0)
      {
-       //bc_printf("Starting Programming...\n ");
        __delay_cycles(100);// so it does not trigger the switch flip noise. 
        init_programming_mode( );
        programming_mode=1;
@@ -307,10 +306,20 @@ __interrupt void PORT1_ISR (void)
      }
      else
      {
-     //bc_printf("Exiting Programming...\n ");
        programming_mode =0;
-     play_knock_pattern(); 
-     P1IES ^= BIT3;
+       P1IES ^= BIT3;
+
+       play_knock_pattern(); 
+       
+       /*
+       {
+       	  bc_printf("Programming complete.\n New Knock Rhythm:");
+	  int idx = 0;
+	  while (idx < key_length_programmed)
+       	    bc_printf(" %u ", KEY[idx++]);
+       	  bc_printf("\n");
+       }
+       */
      }
      P1IFG &= ~BIT3; // P1.3 IFG cleared
     
