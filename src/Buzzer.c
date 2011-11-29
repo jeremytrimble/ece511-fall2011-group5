@@ -1,5 +1,7 @@
 #include "main.h"
 
+/* No longer used as the alarm, but still used when playing back the
+ * knock pattern.  For the new alarm code, see siren(). */
 void activate_alarm(unsigned int duration)
 {
   unsigned int note_index = 0;
@@ -25,24 +27,17 @@ void activate_alarm(unsigned int duration)
 }
 
 
-void activate_door_open(unsigned int duration)
+/* Play a "happy" sound. */
+void activate_door_open(void)
 {
  unsigned int note_index = 0;
- const unsigned int door_open_frequency[] ={250, 110, 120, 400,750};
- const unsigned int door_open_note_duration[] = {300,  350,  400,  450,  500 };
-   while(duration > 0)
+ const unsigned int door_open_frequency[] = {956, 630, 466};
+ const unsigned int door_open_note_duration[] = {100, 150, 200};
+ const unsigned short array_len = sizeof(door_open_frequency)/sizeof(door_open_frequency[1]);
+ while (note_index < array_len)
   {
-     
-      run_Buzzer(door_open_frequency[note_index],door_open_note_duration[note_index]);
-      if (note_index < 4)
-      {
-        note_index++;
-      }
-      else
-      {
-        note_index = 0;
-      }
-  duration--;
+    run_Buzzer(door_open_frequency[note_index], door_open_note_duration[note_index]);
+    note_index++;
   }
 
 }
@@ -95,3 +90,30 @@ P2OUT &=~BIT6;// turns off output to buzzer
 }
 
 
+/* This is used to sound the alarm after 3 incorrect knock sequences. */
+void siren()
+{
+    unsigned int halfPeriod = 600;  /* [200, 1000] */
+    unsigned int delay;
+    int delta = 10;	/* Slews the frequency. */
+
+    unsigned int halfCycles = 0;
+
+    while ( halfCycles < 64 )	/* Controls duration of siren. */
+    {
+        delay = 5;
+        while ( delay > 0 )
+        {
+            delay_microseconds(halfPeriod>>2); // PWM Period
+            P2OUT ^= BIT6;
+            delay--;
+        }
+        halfPeriod += delta;
+
+        if ( halfPeriod == 1000 || halfPeriod == 200 )
+            delta = -delta;
+
+        if ( halfPeriod == 600 )
+            halfCycles++;
+    }
+}

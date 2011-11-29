@@ -4,6 +4,7 @@
 void main(void)
 {
  init_clock();
+ init_programming_mode();
  init_backchannel();
  init_detection();
  init_recognition();
