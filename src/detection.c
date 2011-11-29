@@ -12,7 +12,11 @@ void initialize_adc()
   // we are using channel 5, with clock divided by 4.  ADC10CLK/4
   ADC10CTL1 = INCH_5 + ADC10DIV_4;
   // Vcc & Vss are reference for voltages for ADC to compare to.
-  ADC10CTL0 = SREF_0 + ADC10SHT_3 + ADC10ON + ADC10IE;
+  //ADC10CTL0 = SREF_0 + ADC10SHT_3 + ADC10ON + ADC10IE;
+
+  /* Fix for issue 14 -- don't use low-power mode. */
+  ADC10CTL0 = SREF_0 + ADC10SHT_3 + ADC10ON;
+
   // This sets the input channel 5 of the ADC to Pin P1.5 on the board.  
   ADC10AE0 |= BIT5;
   // Enable and start conversion
@@ -37,11 +41,18 @@ extern void run_detection()
     // ADC wait before starting sampling
     // __delay_cycles(500);
    
+    /* Fix for issue 14 -- don't use low-power mode. */
+    ADC10CTL0 &= ~ADC10IFG;
+    
     // Start ADC Conversion
     ADC10CTL0 |= ENC + ADC10SC;
    
+    /* Fix for issue 14 -- don't use low-power mode. */
     // Low power mode with interrupts enabled
-    __bis_SR_register(CPUOFF + GIE);
+    //__bis_SR_register(CPUOFF + GIE);
+
+    /* Fix for issue 14 -- don't use low-power mode. */
+    while ( !(ADC10CTL0 & ADC10IFG) );
    
     // the value of the conversion is stored in ADC10MEM, we assign this value
     // to a variable
